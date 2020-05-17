@@ -1,0 +1,89 @@
+<mvc:View controllerName="co.za.tourdeforce.TDF_app.controller.Worklist" xmlns="sap.m" xmlns:f="sap.f" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:grid="sap.ui.layout.cssgrid" xmlns:semantic="sap.m.semantic" xmlns:l="sap.ui.layout" xmlns:uxap="sap.uxap"
+	xmlns:lab="it.designfuture.chartjs" xmlns:core="sap.ui.core">
+	<Page id="page" title="Tour de Force" class="sapUiResponsivePadding--footer" showNavButton="false">
+		<content>
+			<uxap:ObjectPageHeaderContent>
+				<uxap:content>
+					<grid:CSSGrid id="grid1" gridTemplateColumns="70% 20% 10%" gridGap="1rem">
+						<FlexBox renderType="Bare">
+							<items>
+								<!--<layout:content>-->
+								<Avatar src="{__metadata/uri}/$value" displaySize="M" press="onPhotoDialog" class="sapUiTinyMarginTop sapUiSmallMarginBegin"/>
+								<VBox>
+									<items>
+										<Title text="{name}" titleStyle="H2" class="sapUiSmallMarginBegin sapUiSmallMarginTop" visible="{= ${ViewModel>/isProfileEdit} === false}"/>
+										<Label text="Home Course" class="sapUiSmallMarginBegin" visible="{= ${ViewModel>/isProfileEdit} === false}"/>
+										<Title text="{country}" titleStyle="H6" class="sapUiSmallMarginBegin" visible="{= ${ViewModel>/isProfileEdit} === false}"/>
+										<Input value="{name}" class="sapUiSmallMarginBegin sapUiSmallMarginTop" visible="{ViewModel>/isProfileEdit}" placeholder="Enter your name"/>
+										<Input value="{country}" class="sapUiSmallMarginBegin" visible="{ViewModel>/isProfileEdit}" placeholder="Enter your home course"/>
+									</items>
+								</VBox>
+								<!--</layout:content>-->
+							</items>
+						</FlexBox>
+						<Title text="{handicap}" titleStyle="H1" class="sapUiSmallMarginTop"/>
+						<HBox justifyContent="End" width="10%">
+							<items>
+								<ToggleButton press="onEditProfile" icon="sap-icon://edit" id="edit" pressed="false" class="sapUiSmallMarginTop"
+									visible="{ViewModel>/signedIn}"/>
+							</items>
+						</HBox>
+					</grid:CSSGrid>
+				</uxap:content>
+			</uxap:ObjectPageHeaderContent>
+			<IconTabBar id="idIconTabBar" select="handleIconTabBarSelect" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter icon="sap-icon://customer" text="Profile" key="Profile">
+						<content>
+							<lab:LineChartJS id="line_chart" datasets="{temp>/lineChart/datasets}" labels="{temp>/lineChart/labels}" titleDisplay="true"
+								titleText="History" onLegendItemClick="onLegendItemClick" onLegendItemHover="onLegendItemHover" onClick="onClick" onHover="onHover"
+								tooltipEnabled="true" onAnimationProgress="onAnimationProgress" onAnimationComplete="onAnimationComplete" showLines="true" spanGaps="true"></lab:LineChartJS>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator/>
+					<IconTabFilter id="friendtab" icon="sap-icon://group" text="Friends" key="Friends">
+						<content>
+							<List id="friendlist">
+								<headerToolbar>
+									<OverflowToolbar>
+										<ToolbarSpacer/>
+										<Button icon="sap-icon://add" press="handleAddFriendDialog" enabled="{ViewModel>/signedIn}"/>
+									</OverflowToolbar>
+								</headerToolbar>
+							</List>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter id="coursetab" icon="sap-icon://customfont/icons8-golf-hole-64" text="Courses" key="Courses">
+						<content>
+							<List id="courselist">
+							<headerToolbar>
+									<OverflowToolbar>
+										<ToolbarSpacer/>
+										<Button icon="sap-icon://add" press="handleAddCourseDialog" enabled="{ViewModel>/signedIn}"/>
+									</OverflowToolbar>
+								</headerToolbar>
+							</List>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter icon="sap-icon://competitor" count="{/ProductCollectionStats/Counts/Weight/Overweight}" text="Tourneys" key="Tourneys">
+						<content>
+							<List >
+								<StandardListItem title="{Name}" counter="{Quantity}" icon=""/>
+							</List>
+						</content>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<Button press="onSignIn" icon="sap-icon://customfont/switch" id="signin"/>
+				<!--<core:HTML content='&lt;div class="g-signin2" data-onsuccess="onSignIn"&gt;&lt;/div&gt;'/>-->
+				<ToolbarSpacer/>
+				<Button text="Play Game" press="onPressPlay" icon="sap-icon://media-play"/>
+				<!--<OverflowToolbarButton icon="sap-icon://settings" text="Settings" press="onPress"/>-->
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

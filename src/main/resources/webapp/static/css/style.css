@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'icomoon';
+     font-weight: 900;
+    src: url('fonts/icomoon.eot');
+    src: url('fonts/icomoon.eot?#iefix') format('embedded-opentype'), url('fonts/icomoon.ttf') format('truetype'), url('fonts/icomoon.woff') format('woff'), url('fonts/icomoon.svg?#icomoon') format('svg');
+    font-style: normal;
+}
+
+/*.customfont{*/
+/*    font-family: 'icomoon';*/
+/*    font-weight: 900;*/
+/*}*/
+
+/*.icon-switch:before {*/
+/*  content: "\e9b6";*/
+/*}*/
+
+/*.icon-icons8-golf-hole-64:before {*/
+/*  content: "\e900";*/
+/*}*/

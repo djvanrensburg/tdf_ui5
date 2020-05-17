@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<ResponsivePopover class="sapUiPopupWithPadding" placement="Left" title="Search for a Friend">
+			<SearchField
+			id="searchField"
+			width="300px"
+			placeholder="Search for Friend"
+			enableSuggestions="true"
+			search="onSearchFriend"
+			suggest="onSuggestFriend"
+			suggestionItems="{/Players}">
+			<SuggestionItem text="{name}" description="{country} - {handicap}" icon="{__metadata/uri}/$value" key="{email}" />
+		</SearchField>
+		<Toolbar>
+			<Button type="Reject" text="Cancel" press="onCancelFriendSearch"/>
+			<ToolbarSpacer/>
+			<Button type="Accept" text="Add Friend" press="onSaveFriend"/>
+		</Toolbar>
+	</ResponsivePopover>
+</core:FragmentDefinition>

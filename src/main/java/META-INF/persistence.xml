@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="TourDeForce_olingo_jpa_v1">
+	<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+	<class>tourdeforce.co.za.v1.model.Player</class>
+	<class>tourdeforce.co.za.v1.model.PlayerFriend</class>
+	<class>tourdeforce.co.za.v1.model.Course</class>
+	<class>tourdeforce.co.za.v1.model.FavouriteCourse</class>
+
+		<properties>
+			<property name="eclipselink.logging.level.sql"
+				value="FINEST" />
+			<property name="eclipselink.logging.parameters" value="true" />
+			<property name="eclipselink.logging.timestamp" value="true" />
+			<property name="eclipselink.weaving" value="static" />
+			<property name="eclipselink.persistence-context.flush-mode"
+				value="commit" />
+			<property name="javax.persistence.validation.mode"
+				value="NONE" />
+
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://localhost:3306/tdfapp_db" />
+			<!-- <property name="jpa.generate-ddl" value="true"/> -->
+
+			<property name="javax.persistence.jdbc.driver"
+				value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password"
+				value="tdfadmin" />
+			<property name="eclipselink.jpql.parser"
+				value="org.eclipse.persistence.queries.ANTLRQueryBuilder" />
+			<property name="eclipselink.ddl-generation"
+				value="create-tables" />
+			<property
+				name="javax.persistence.schema-generation.create-database-schemas"
+				value="true" />
+		</properties>
+	</persistence-unit>
+</persistence>

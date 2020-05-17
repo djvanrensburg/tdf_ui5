@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:cust="co.za.tourdeforce.TDF_app.customControls">
+	<!--<Label text="Once you have made your selection, please get in touch with HR"/>-->
+	<Popover class="sapUiPopupWithPadding" placement="Right" title="Photo Selection">
+		<!--<u:FileUploader id="fileUploader" name="myFileUpload" tooltip="Select a new Profile photo" uploadComplete="handleUploadComplete"-->
+		<!--	uploadOnChange="false"/>-->
+		 <cust:FileUploaderWithPUT id="fileUploader" name="myFileUpload" tooltip="Select a new Profile photo" uploadComplete="handleUploadComplete"
+			uploadOnChange="false" method="PUT" maximumFileSize="10" fileSizeExceed="maxFileSizeExceed"/>
+<!-- 		<u:FileUploader id="fileUploader" name="myFileUpload" tooltip="Select a new Profile photo" uploadComplete="handleUploadComplete"
+			uploadOnChange="false" method="PUT" maximumFileSize="10" fileSizeExceed="maxFileSizeExceed"/>
+ -->		
+ 		<Button text="Upload" press="handleFileUpload"/>
+	</Popover>
+</core:FragmentDefinition>

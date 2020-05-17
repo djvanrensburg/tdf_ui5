@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="google-signin-client_id" content="512836479600-orbnrohsmbrfvn96h6ut06vi9sp93f4t.apps.googleusercontent.com">
+	<title>Tour de Force</title>
+
+	<!-- Bootstrapping OpenUI5 -->
+		<script id="sap-ui-bootstrap"
+			src="https://openui5.hana.ondemand.com/1.73.1/resources/sap-ui-core.js"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-theme="sap_belize"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-resourceroots='{"co.za.tourdeforce.TDF_app": ""}'>
+		</script>
+		
+	<!--<script id="sap-ui-bootstrap"-->
+	<!--		src="https://openui5.hana.ondemand.com/1.71.1/resources/sap-ui-core.js"-->
+	<!--		data-sap-ui-libs="sap.m, sap.f"-->
+	<!--		data-sap-ui-theme="sap_belize"-->
+	<!--		data-sap-ui-compatVersion="edge"-->
+	<!--		data-sap-ui-preload="async"-->
+	<!--		data-sap-ui-resourceroots='{"co.za.tourdeforce.TDF_app": "."}'-->
+	<!--		data-sap-ui-frameOptions="trusted">-->
+	<!--</script>-->
+	<!--Include Charts-->
+	<!--<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>-->
+		<script>
+			sap.ui.getCore().attachInit(function() {
+				new sap.m.Shell({
+					app: new sap.ui.core.ComponentContainer({
+						height : "100%",
+						name : "co.za.tourdeforce.TDF_app"
+					})
+				}).placeAt("content");
+			});
+		</script>
+
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+
+<!-- UI Content -->
+<body class="sapUiBody" id="content">
+</body>
+</html>

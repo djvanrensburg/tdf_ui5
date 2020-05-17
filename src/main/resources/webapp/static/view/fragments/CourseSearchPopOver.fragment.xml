@@ -1,0 +1,48 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout">
+	<ResponsivePopover class="sapUiPopupWithPadding"
+		placement="Left" title="Search for a Course">
+		<SearchField id="searchField" width="300px"
+			placeholder="Search for Course" enableSuggestions="true"
+			search="onSearchCourse" suggest="onSuggestCourse"
+			suggestionItems="{/Courses}">
+			<SuggestionItem text="{coursename}"
+				description="{country}" icon="{__metadata/uri}/$value"
+				key="{coursename}|{country}" />
+		</SearchField>
+		<Link text="{ViewModel>/newCourseLinkText}"
+			press="onShowNewCourseInput"
+			class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+		<Panel expandable="false" backgroundDesign="Solid"
+			visible="{ViewModel>/showCourseInput}" id="newCoursePanel">
+			<Input value="{/coursename}"
+				placeholder="Enter Course Name" />
+			<Input value="{/country}"
+				placeholder="Enter Country" />
+			<!-- <VBox items="{CourseInputModel>/holes}" > <items> <VBox > <items> -->
+			<HBox class="sapUiSmallMarginTop" id="rowHole"
+				alignItems="Center">
+				<items>
+					<Label text="Hole {holeNumber}" />
+					<Input type="Number" value="{strokemen}"
+						placeholder="Stroke" width="60px" submit="onEnterStroke"
+						class="sapUiSmallMarginBegin" />
+					<Input type="Number" value="{parmen}"
+						placeholder="Par" class="sapUiSmallMarginBegin" width="60px"
+						submit="onEnterPar" />
+				</items>
+			</HBox>
+			<!-- </items> </VBox> </items> </VBox> -->
+			<Button icon="sap-icon://save" press="onSaveCourse"
+				class="sapUiSmallMarginTop" />
+		</Panel>
+		<Toolbar>
+			<Button type="Reject" text="Cancel"
+				press="onCancelCourseSearch" />
+			<ToolbarSpacer />
+			<Button type="Accept" text="Add Course as Favourite"
+				press="onSaveFavouriteCourse" />
+		</Toolbar>
+	</ResponsivePopover>
+</core:FragmentDefinition>
